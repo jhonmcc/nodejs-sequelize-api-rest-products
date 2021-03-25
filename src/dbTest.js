@@ -25,7 +25,10 @@
         // const resUpdate = await updateOne.save()
         // console.log(resUpdate)
 
-        
+        // delete by two ways
+        produto.destroy({where: {id: 1}}) // first
+        // const delOne = await produto.findByPk(2) //second
+        // delOne.destroy() //second
 
     } catch (error) {
         console.log(error)
