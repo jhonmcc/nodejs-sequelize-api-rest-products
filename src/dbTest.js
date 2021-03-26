@@ -1,6 +1,6 @@
 (async () => {
     const database = require('./database/db')
-    const produto = require('./models/Produto')
+    const produto = require('./models/productModel')
     
     try {
         const result = await database.sync()
@@ -13,8 +13,8 @@
         // })
         // console.log(createResult)
 
-        // const resultAll = await produto.findAll()
-        // console.log(resultAll)
+        const resultAll = await produto.findAll()
+        console.log(resultAll)
         
         // const findOne = await produto.findByPk(1)
         // console.log(findOne)
@@ -26,7 +26,8 @@
         // console.log(resUpdate)
 
         // delete by two ways
-        produto.destroy({where: {id: 1}}) // first
+        // produto.destroy({where: {id: 1}}) // first
+
         // const delOne = await produto.findByPk(2) //second
         // delOne.destroy() //second
 
