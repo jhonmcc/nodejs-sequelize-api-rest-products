@@ -2,13 +2,27 @@ const productModel = require('../models/productModel')
 const db = require('../database/db')
 
 module.exports = {
-    async init(req, res){
+    async init(res){
         try {
             const conn = await db.sync()
-            console.log(conn)
-            conn.close()
+            res.status(200).json({server: 'Is Sync'})
         } catch (error) {
-            res.send(error)
+            res.status(400).json(error)
+        }
+    },
+
+    async insert(req, res){
+        try {
+            const conn = await db.sync()
+            // falta inserir persistencia de dados //
+            const resInsert = await productModel.create({
+                nome: req.body.nome,
+                preco: req.body.preco,
+                descricao: req.body.descricao
+            })
+            res.status(200).json(resInsert)
+        } catch (error) {
+            res.status(400).json(error)
         }
     },
 

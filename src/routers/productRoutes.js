@@ -6,11 +6,16 @@ const routes = express.Router()
 const productController = require('../controllers/productController')
 
 routes.get('/', (req, res) => {
-    return res.send({path: "product/"})
+    productController.init(res)
+    // return res.send({path: "product/"})
 })
 
 routes.get('/all', (req, res) => {
     productController.listAll(res)
+})
+
+routes.post('/add', (req, res) => {
+    productController.insert(req, res)
 })
 
 
