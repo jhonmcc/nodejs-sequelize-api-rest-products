@@ -34,5 +34,16 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error)
         }
+    },
+
+    async findOne(req, res){
+        try {
+            const conn = await db.sync()
+            const resOne = await productModel.findByPk(req.params.id)
+            // console.log(req.params)
+            return res.status(200).json(resOne)
+        } catch (error) {
+            res.status(400).json(error)
+        }
     }
 }

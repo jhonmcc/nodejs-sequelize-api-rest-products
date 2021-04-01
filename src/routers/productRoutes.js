@@ -18,5 +18,9 @@ routes.post('/add', (req, res) => {
     productController.insert(req, res)
 })
 
+routes.get('/getOne/:id', (req, res) => {
+    // res.send({ params: req.params })
+    productController.findOne(req, res)
+})
 
 module.exports = routes
