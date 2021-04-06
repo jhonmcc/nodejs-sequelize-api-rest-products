@@ -45,5 +45,19 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error)
         }
+    },
+
+    async updateOne(req, res){
+        try {
+            const conn = await db.sync()
+            const updateOne = await productModel.findByPk(req.params.id)
+            updateOne.nome = req.body.nome
+            updateOne.nome = req.body.preco
+            updateOne.nome = req.body.descricao
+            const resUpdate = await updateOne.save()
+            res.status(200).json(updateOne)
+        } catch (error) {
+            res.status(400).json(error)
+        }
     }
 }

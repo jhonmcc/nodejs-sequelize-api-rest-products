@@ -13,17 +13,17 @@
         // })
         // console.log(createResult)
 
-        const resultAll = await produto.findAll()
-        console.log(resultAll)
+        // const resultAll = await produto.findAll()
+        // console.log(resultAll)
         
         // const findOne = await produto.findByPk(1)
         // console.log(findOne)
 
-        // const updateOne = await produto.findByPk(1)
-        // console.log(updateOne)
-        // updateOne.nome = 'Mouse Laser'
-        // const resUpdate = await updateOne.save()
-        // console.log(resUpdate)
+        const updateOne = await produto.findByPk(1)
+        console.log(updateOne)
+        updateOne.nome = 'Mouse Laser'
+        const resUpdate = await updateOne.save()
+        console.log(resUpdate)
 
         // delete by two ways
         // produto.destroy({where: {id: 1}}) // first
