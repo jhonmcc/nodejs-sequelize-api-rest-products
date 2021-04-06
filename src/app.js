@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
     res.send({server: 'online'})
 })
 // user router api
-app.use('/product', require('./routers/productRoutes'))
+app.use('/products', require('./routers/productRoutes'))
 
 app.listen(PORT, () => console.log('running server'))

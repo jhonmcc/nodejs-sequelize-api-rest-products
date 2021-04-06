@@ -5,7 +5,7 @@ module.exports = {
     async init(res){
         try {
             const conn = await db.sync()
-            res.status(200).json({server: 'Is Sync'})
+            // res.status(200).json({server: 'Is Sync'})
         } catch (error) {
             res.status(400).json(error)
         }
@@ -28,9 +28,9 @@ module.exports = {
 
     async listAll(res){
         try {
-            const conn = await db.sync()
+            // const conn = await db.sync()
             const resAll = await productModel.findAll()
-            res.status(200).json(resAll)
+            res.status(200).json({products: resAll})
         } catch (error) {
             res.status(400).json(error)
         }
