@@ -59,5 +59,17 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error)
         }
+    },
+
+    async deleteOne(req, res){
+        try {
+            const conn = await db.sync()
+            // const deleteOne = await productModel.findByPk(req.param.id)
+            // deleteOne.destroy()
+            const deleteOne = await productModel.destroy({where: {id: req.params.id}})
+            res.status(200).json(deleteOne)
+        } catch (error) {
+            res.status(400).json(error)
+        }
     }
 }
